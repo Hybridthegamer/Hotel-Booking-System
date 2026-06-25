@@ -1,0 +1,239 @@
+/* ============================================================
+   Grand Royale Hotel — Main Stylesheet
+   ============================================================ */
+
+:root {
+  --gold: #c9a84c;
+  --dark: #1a1a2e;
+  --card-shadow: 0 4px 24px rgba(0,0,0,.08);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+}
+
+h1, h2, h3, .navbar-brand {
+  font-family: 'Playfair Display', serif;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+.hero-subtitle { font-size: 1.15rem; opacity: .85; }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: rgba(201,168,76,.15);
+  border: 1px solid rgba(201,168,76,.4);
+  color: #c9a84c;
+  border-radius: 50px;
+  padding: .4rem 1.2rem;
+  font-size: .85rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+/* ── SEARCH BOX ── */
+.search-box {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+.search-box .form-label { font-weight: 500; font-size: .85rem; color: #555; }
+.btn-book { background: #c9a84c; border-color: #c9a84c; color: #1a1a2e; font-weight: 600; }
+.btn-book:hover { background: #b8953b; border-color: #b8953b; color: #1a1a2e; }
+
+/* ── FEATURE CARDS ── */
+.feature-card {
+  border: none;
+  border-radius: 16px;
+  padding: 2rem;
+  background: white;
+  box-shadow: var(--card-shadow);
+  transition: transform .25s, box-shadow .25s;
+  text-align: center;
+}
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(0,0,0,.12); }
+.feature-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-size: 1.8rem;
+}
+
+/* ── ROOM CARDS ── */
+.room-card {
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: transform .25s, box-shadow .25s;
+}
+.room-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(0,0,0,.14); }
+.room-card .room-img {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
+}
+.room-placeholder {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.room-placeholder.commercial { background: linear-gradient(135deg, #6c757d 0%, #495057 100%); }
+.room-placeholder.business   { background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%); }
+.room-placeholder.executive  { background: linear-gradient(135deg, #198754 0%, #146c43 100%); }
+.room-placeholder.double     { background: linear-gradient(135deg, #fd7e14 0%, #dc6508 100%); }
+.room-placeholder.suite      { background: linear-gradient(135deg, #6f42c1 0%, #59359a 100%); }
+
+.rate-badge {
+  position: absolute;
+  top: 12px; right: 12px;
+  background: rgba(0,0,0,.65);
+  color: #ffc107;
+  padding: .3rem .75rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: .85rem;
+}
+.amenity-tag {
+  display: inline-flex; align-items: center; gap: .3rem;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 50px;
+  padding: .2rem .65rem;
+  font-size: .75rem;
+  color: #555;
+  margin: .15rem;
+}
+
+/* ── BOOKING TIMER ── */
+.timer-wrapper {
+  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+  color: white;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+}
+.countdown { font-size: 2.5rem; font-weight: 700; font-family: monospace; }
+.countdown.urgent { color: #ff4444; animation: pulse 1s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+
+/* ── TRUST SCORE ── */
+.trust-ring {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.3rem;
+  border: 4px solid currentColor;
+}
+
+/* ── QUEUE BADGE ── */
+.queue-position {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: #ffc107;
+  color: #1a1a2e;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* ── ADMIN ── */
+.sidebar {
+  background: #1a1a2e;
+  min-height: 100vh;
+  padding: 0;
+}
+.sidebar .nav-link {
+  color: rgba(255,255,255,.65);
+  padding: .75rem 1.5rem;
+  border-radius: 0;
+  transition: all .2s;
+}
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  color: #ffc107;
+  background: rgba(255,193,7,.08);
+  border-left: 3px solid #ffc107;
+}
+.sidebar .nav-link i { width: 20px; }
+.stat-card {
+  border: none; border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform .2s;
+}
+.stat-card:hover { transform: translateY(-4px); }
+.stat-icon {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem;
+}
+
+/* ── FORMS ── */
+.form-control:focus, .form-select:focus {
+  border-color: #c9a84c;
+  box-shadow: 0 0 0 .2rem rgba(201,168,76,.2);
+}
+.auth-card {
+  border: none; border-radius: 20px;
+  box-shadow: 0 12px 48px rgba(0,0,0,.12);
+  overflow: hidden;
+}
+.auth-side {
+  background: linear-gradient(160deg, #1a1a2e 0%, #0f3460 100%);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 3rem 2rem;
+  color: white; text-align: center;
+}
+
+/* ── UTILITIES ── */
+.section-label {
+  display: inline-flex; align-items: center; gap: .5rem;
+  color: #c9a84c; font-weight: 600; font-size: .85rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  margin-bottom: .5rem;
+}
+.section-title { font-weight: 700; }
+.divider { width: 60px; height: 3px; background: #c9a84c; border-radius: 2px; margin: 1rem 0; }
+.bg-gold { background-color: #c9a84c !important; }
+.text-gold { color: #c9a84c !important; }
+.border-gold { border-color: #c9a84c !important; }
+.avatar-xs { width: 32px; height: 32px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero { min-height: 100vh; text-align: center; }
+  .sidebar { min-height: auto; }
+}
